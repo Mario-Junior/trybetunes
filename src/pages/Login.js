@@ -33,6 +33,7 @@ class Login extends Component {
     const enableButton = nameInput.length >= minNameSize;
     const form = (
       <>
+        <h1>trybeTunes</h1>
         <input
           type="text"
           data-testid="login-name-input"
