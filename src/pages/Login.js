@@ -6,7 +6,7 @@ class Login extends Component {
       <div data-testid="page-login">
         Eu sou a página de Login
       </div>
-    )
+    );
   }
 }
 
