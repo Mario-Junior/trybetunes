@@ -21,6 +21,7 @@ class Header extends Component {
         <div>
           <p>trybeTunes</p>
           <p data-testid="header-user-name">{ username }</p>
+          <span><Link to="/">Logout</Link></span>
         </div>
         <nav>
           <p><Link to="/search" data-testid="link-to-search">Pesquisa</Link></p>
