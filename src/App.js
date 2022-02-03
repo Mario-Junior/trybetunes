@@ -1,5 +1,6 @@
 import React from 'react';
 import Login from './pages/Login';
+import Search from './pages/Search';
 
 class App extends React.Component {
   render() {
@@ -7,6 +8,7 @@ class App extends React.Component {
       <>
         <p>TrybeTunes</p>
         <Login />
+        <Search />
       </>
     );
   }
