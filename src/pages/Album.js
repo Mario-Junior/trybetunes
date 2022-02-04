@@ -10,6 +10,7 @@ class Album extends Component {
   state = {
     musicsArray: '',
     loading: false,
+    favoriteSongs: [],
   }
 
   componentDidMount() {
@@ -27,22 +28,20 @@ class Album extends Component {
   }
 
   handleCheckChange = async ({ target }) => {
-    const { trackname, checked } = target;
-    const { musicsArray } = this.state;
-    const checkTrack = musicsArray.find(({ trackName }) => trackName === trackname);
+    const { name, checked } = target;
+    const { musicsArray, favoriteSongs } = this.state;
+    const checkedTrack = musicsArray.find(({ trackName }) => trackName === name);
 
     this.setState({ loading: true });
 
-    console.log(checkTrack);
-
     if (checked) {
-      await addSong(checkTrack);
+      await addSong(checkedTrack);
     }
-    this.setState({ loading: false });
+    this.setState({ loading: false, favoriteSongs: [...favoriteSongs, checkedTrack] });
   }
 
   showMusics = () => {
-    const { musicsArray, loading } = this.state;
+    const { musicsArray, loading, favoriteSongs } = this.state;
     const { artistName, artworkUrl100, collectionName } = musicsArray[0];
 
     return (
@@ -64,10 +63,12 @@ class Album extends Component {
                 return (
                   <MusicCard
                     key={ trackId }
-                    trackName={ trackName }
-                    previewUrl={ previewUrl }
-                    trackId={ trackId }
+                    name={ trackName }
+                    preview={ previewUrl }
+                    id={ trackId }
                     onChange={ this.handleCheckChange }
+                    checked={ favoriteSongs
+                      .some((musicId) => musicId.trackId === trackId) }
                   />);
               })}
             </div>
