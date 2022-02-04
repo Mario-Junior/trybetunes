@@ -24,7 +24,7 @@ class Login extends Component {
     this.setState({ loading: true });
 
     await createUser({ name: nameInput });
-    
+
     this.setState({ redirect: true });
   };
 
