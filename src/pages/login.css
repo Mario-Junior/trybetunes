@@ -1,7 +1,0 @@
-div {
-  display: flex;
-  flex-direction: column;
-  margin: 1vw auto;
-  text-align: center;
-  width: calc(250px + 2vw);
-}

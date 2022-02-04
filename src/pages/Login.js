@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './login.css';
+import './app.css';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
@@ -19,12 +19,12 @@ class Login extends Component {
 
   handleSubmitButton = async (event) => {
     event.preventDefault();
-
-    this.setState({ loading: true });
     const { nameInput } = this.state;
 
-    await createUser({ name: nameInput });
+    this.setState({ loading: true });
 
+    await createUser({ name: nameInput });
+    
     this.setState({ redirect: true });
   };
 
@@ -55,7 +55,7 @@ class Login extends Component {
     );
 
     return (
-      <div data-testid="page-login">
+      <div data-testid="page-login" className="login">
         { loading ? <Loading /> : form }
         { redirect && <Redirect to="/search" /> }
       </div>

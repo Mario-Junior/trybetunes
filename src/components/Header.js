@@ -18,12 +18,12 @@ class Header extends Component {
     const { loading, username } = this.state;
     const header = (
       <>
-        <div>
+        <div className="hearder-top">
           <p>trybeTunes</p>
           <p data-testid="header-user-name">{ username }</p>
           <span><Link to="/">Logout</Link></span>
         </div>
-        <nav>
+        <nav className="header-menu">
           <p><Link to="/search" data-testid="link-to-search">Pesquisa</Link></p>
           <p><Link to="/favorites" data-testid="link-to-favorites">Favoritas</Link></p>
           <p><Link to="/profile" data-testid="link-to-profile">Perfil</Link></p>
@@ -32,7 +32,7 @@ class Header extends Component {
     );
 
     return (
-      <header data-testid="header-component">
+      <header data-testid="header-component" className="header">
         { loading ? <Loading /> : header }
       </header>
     );

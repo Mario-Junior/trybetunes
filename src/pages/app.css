@@ -1,0 +1,58 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  margin: 1vw auto;
+  max-width: 300px;
+  text-align: center;
+  width: 80%;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  margin: 1vw auto;
+  max-width: 300px;
+  text-align: center;
+  width: 80%;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  margin: 1vw auto;
+  max-width: 300px;
+  text-align: center;
+  width: 80%;
+}
+
+.album-section {
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+}
+
+.albums {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+}
+
+.album-card {
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  margin: 2vw auto;
+  width: 250px;
+}
+
+.album-card p {
+  font-size: small;
+}
+
+.album-img {
+  max-height: 125px;
+  width: 250px;
+}
