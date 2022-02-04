@@ -23,7 +23,6 @@ class Album extends Component {
     const musics = await getMusics(id);
 
     this.setState({ musicsArray: musics, loading: false });
-    console.log(musics);
   }
 
   showMusics = () => {
@@ -34,31 +33,36 @@ class Album extends Component {
       loading
         ? <Loading />
         : (
-          <section className="album_selected">
-            <div className="data-album">
-              <img src={ artworkUrl100 } alt="Capa do album" />
-              <h1 data-testid="album-name">{ collectionName }</h1>
-              <h2 data-testid="artist-name">{ artistName }</h2>
+          <section className="musics-section">
+            <div className="album-data">
+              <img
+                src={ artworkUrl100 }
+                alt={ `Capa do álbum ${collectionName} de ${artistName}` }
+              />
+              <p data-testid="album-name">{ collectionName }</p>
+              <p data-testid="artist-name">{ artistName }</p>
             </div>
-
-            { musicsArray.slice(1).map((music) => {
-              const { artworkUrl30, previewUrl, trackId, trackName } = music;
-              return (
-                <MusicCard
-                  key={ trackId }
-                  image={ artworkUrl30 }
-                  trackname={ trackName }
-                  previewUrl={ previewUrl }
-                />);
-            })}
+            <div className="musics-data">
+              { musicsArray.slice(1).map((music) => {
+                const { previewUrl, trackId, trackName } = music;
+                return (
+                  <MusicCard
+                    key={ trackId }
+                    trackname={ trackName }
+                    previewUrl={ previewUrl }
+                  />);
+              })}
+            </div>
           </section>
         ));
   }
 
   render() {
+    const { musicsArray } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
+        { musicsArray.length === 0 ? <Loading /> : this.showMusics() }
       </div>
     );
   }

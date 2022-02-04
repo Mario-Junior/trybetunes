@@ -1,3 +1,7 @@
+.loading {
+  text-align: center;
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -55,4 +59,24 @@
 .album-img {
   max-height: 125px;
   width: 250px;
+}
+
+.musics-section {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  max-width: 1100px;
+}
+
+.album-data {
+  display: flex;
+  flex-direction: column;
+  margin: 1vw auto;
+}
+
+.music-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 700px;
 }

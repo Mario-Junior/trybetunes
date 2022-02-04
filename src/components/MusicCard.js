@@ -8,7 +8,7 @@ class MusicCard extends Component {
     return (
       <div className="music-card">
         { image && <img src={ image } alt={ `Album da música ${trackname}` } /> }
-        <h3>{ trackname }</h3>
+        <h5>{ trackname }</h5>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
