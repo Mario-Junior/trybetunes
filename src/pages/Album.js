@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
+import { addSong } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   state = {
@@ -23,6 +24,21 @@ class Album extends Component {
     const musics = await getMusics(id);
 
     this.setState({ musicsArray: musics, loading: false });
+  }
+
+  handleCheckChange = async ({ target }) => {
+    const { trackname, checked } = target;
+    const { musicsArray } = this.state;
+    const checkTrack = musicsArray.find(({ trackName }) => trackName === trackname);
+
+    this.setState({ loading: true });
+
+    console.log(checkTrack);
+
+    if (checked) {
+      await addSong(checkTrack);
+    }
+    this.setState({ loading: false });
   }
 
   showMusics = () => {
@@ -50,6 +66,8 @@ class Album extends Component {
                     key={ trackId }
                     trackName={ trackName }
                     previewUrl={ previewUrl }
+                    trackId={ trackId }
+                    onChange={ this.handleCheckChange }
                   />);
               })}
             </div>
