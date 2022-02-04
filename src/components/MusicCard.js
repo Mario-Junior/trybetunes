@@ -3,17 +3,28 @@ import PropTypes from 'prop-types';
 
 class MusicCard extends Component {
   render() {
-    const { trackname, previewUrl, image } = this.props;
+    const { image, trackName, previewUrl, trackId, checked } = this.props;
 
     return (
       <div className="music-card">
-        { image && <img src={ image } alt={ `Album da música ${trackname}` } /> }
-        <h5>{ trackname }</h5>
+        { image && <img src={ image } alt={ `Album da música ${trackName}` } /> }
+        <h5>{ trackName }</h5>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
           <code>audio</code>
         </audio>
+        <label htmlFor={ trackId }>
+          Favorita
+          <input
+            type="checkbox"
+            data-testid={ `checkbox-music-${trackId}` }
+            trackId={ trackId }
+            trackName={ trackName }
+            checked={ checked }
+          />
+        </label>
+
       </div>
     );
   }
