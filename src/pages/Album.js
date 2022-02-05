@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   state = {
@@ -45,8 +45,13 @@ class Album extends Component {
 
     if (checked) {
       await addSong(checkedTrack);
+      this.setState({ loading: false, favoriteSongs: [...favoriteSongs, checkedTrack] });
+    } else {
+      await removeSong(checkedTrack);
+      const newArray = favoriteSongs
+        .filter((song) => song.trackId !== checkedTrack.trackId);
+      this.setState({ loading: false, favoriteSongs: newArray });
     }
-    this.setState({ loading: false, favoriteSongs: [...favoriteSongs, checkedTrack] });
   }
 
   showMusics = () => {

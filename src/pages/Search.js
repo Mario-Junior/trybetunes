@@ -22,7 +22,6 @@ class Search extends Component {
     this.setState({ searchInput: '', loading: true });
 
     const returnedAlbums = await searchAlbumsAPI(searchInput);
-    console.log(returnedAlbums);
 
     this.setState({
       albumsArray: returnedAlbums,
