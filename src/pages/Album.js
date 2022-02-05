@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   state = {
@@ -15,6 +15,7 @@ class Album extends Component {
 
   componentDidMount() {
     this.handleMusics();
+    this.recoverFavoriteSongs();
   }
 
   handleMusics = async () => {
@@ -25,6 +26,14 @@ class Album extends Component {
     const musics = await getMusics(id);
 
     this.setState({ musicsArray: musics, loading: false });
+  }
+
+  recoverFavoriteSongs = async () => {
+    this.setState({ loading: true });
+
+    const favoriteSongs = await getFavoriteSongs();
+
+    this.setState({ loading: false, favoriteSongs });
   }
 
   handleCheckChange = async ({ target }) => {
