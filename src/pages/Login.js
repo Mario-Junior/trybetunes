@@ -39,7 +39,7 @@ class Login extends Component {
           data-testid="login-name-input"
           name="nameInput"
           value={ nameInput }
-          placeholder="Nome de usuário"
+          placeholder="Nome de pessoa usuária"
           onChange={ (event) => this.setState({ nameInput: event.target.value }) }
         />
         <button

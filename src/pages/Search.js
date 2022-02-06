@@ -70,7 +70,7 @@ class Search extends Component {
           data-testid="search-artist-input"
           name="searchInput"
           value={ searchInput }
-          placeholder="Nome do artista ou banda"
+          placeholder="Nome de artista ou banda"
           onChange={ (event) => this.setState({ searchInput: event.target.value }) }
         />
         <button
