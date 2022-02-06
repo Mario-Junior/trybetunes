@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser } from '../services/userAPI';
@@ -29,6 +30,7 @@ class Profile extends Component {
                   ? <img data-testid="profile-image" src={ image } alt={ name } />
                   : <img src="https://bit.ly/3B3AFwj" alt="imagem genérica para pessoa usuária" />}
               </div>
+              <Link to="/profile/edit">Editar perfil</Link>
               <div className="name-container">
                 <h3>Nome</h3>
                 <p>{ name }</p>
