@@ -13,7 +13,6 @@ class Profile extends Component {
   async componentDidMount() {
     const user = await getUser();
     this.setState({ loading: false, user });
-    console.log(user);
   }
 
   render() {
@@ -28,7 +27,7 @@ class Profile extends Component {
               <div className="image-container">
                 { image.length
                   ? <img data-testid="profile-image" src={ image } alt={ name } />
-                  : <img src="https://bit.ly/3B3AFwj" alt="imagem genérica para pessoa usuária" />}
+                  : <img src="https://bit.ly/3B3AFwj" alt="imagem de pessoa usuária" /> }
               </div>
               <Link to="/profile/edit">Editar perfil</Link>
               <div className="name-container">
