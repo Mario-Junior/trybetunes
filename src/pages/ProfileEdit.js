@@ -30,7 +30,21 @@ class ProfileEdit extends Component {
     const { id, value } = target;
     this.setState({
       [id]: value,
-    });
+    }, () => this.enableSaveButton());
+  }
+
+  enableSaveButton = () => {
+    const { description, email, image, username } = this.state;
+
+    const errorCases = [
+      !description.length,
+      !email.length,
+      !image.length,
+      !username.length,
+    ];
+
+    const disabled = errorCases.every((error) => error !== true);
+    this.setState({ isSaveButtonDisabled: !disabled });
   }
 
   handleFormToRender = () => {
