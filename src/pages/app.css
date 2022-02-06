@@ -92,5 +92,20 @@
 .image-container > img:first-child {
   border: 1px solid grey;
   border-radius: 50%;
-  width: 25%;
+  height: 20vw;
+  width: 20vw;
+}
+
+.profile-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.image-container > img:first-child {
+  border: 1px solid grey;
+  border-radius: 50%;
+  height: 20vw;
+  width: 20vw;
 }
