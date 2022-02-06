@@ -23,21 +23,21 @@ class Profile extends Component {
         <Header />
         { loading ? <Loading />
           : (
-            <section className="profile">
-              <div className="image">
+            <section className="profile-section">
+              <div className="image-container">
                 { image.length
                   ? <img data-testid="profile-image" src={ image } alt={ name } />
                   : <img src="https://bit.ly/3B3AFwj" alt="imagem genérica para pessoa usuária" />}
               </div>
-              <div className="section">
+              <div className="name-container">
                 <h3>Nome</h3>
                 <p>{ name }</p>
               </div>
-              <div className="section">
+              <div className="email-container">
                 <h3>E-mail</h3>
                 <p>{ email }</p>
               </div>
-              <div className="section">
+              <div className="description-container">
                 <h3>Descrição</h3>
                 <p>{ description }</p>
               </div>
