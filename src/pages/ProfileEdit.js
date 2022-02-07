@@ -127,7 +127,7 @@ class ProfileEdit extends Component {
           />
         </label>
         <button
-          type="submit"
+          type="button"
           data-testid="edit-button-save"
           disabled={ isSaveButtonDisabled }
           onClick={ this.saveUpdatedUser }
