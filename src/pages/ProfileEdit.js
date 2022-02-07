@@ -132,7 +132,7 @@ class ProfileEdit extends Component {
           disabled={ isSaveButtonDisabled }
           onClick={ this.saveUpdatedUser }
         >
-          Salvar
+          Editar perfil
         </button>
       </form>
     );
