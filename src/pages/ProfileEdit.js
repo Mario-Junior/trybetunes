@@ -56,14 +56,12 @@ class ProfileEdit extends Component {
   saveUpdatedUser = async (event) => {
     event.preventDefault();
 
-    const { history } = this.props;
-
     this.setState({ loading: true });
 
     const { description, email, image, username } = this.state;
-    await updateUser({ description, email, image, name: username })
+    await updateUser({ description, email, image, name: username });
 
-    this.setState({ loading: false }, () => history.push('/profile'));
+    this.setState({ loading: false, redirect: true });
   }
 
   handleFormToRender = () => {
@@ -146,7 +144,7 @@ class ProfileEdit extends Component {
       <div data-testid="page-profile-edit">
         <Header />
         { loading ? <Loading /> : this.handleFormToRender() }
-        {/* { redirect && <Redirect to="/profile" /> } */}
+        { redirect && <Redirect to="/profile" /> }
       </div>
     );
   }
