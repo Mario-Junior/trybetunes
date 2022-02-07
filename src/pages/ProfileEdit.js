@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
-import { getUser } from '../services/userAPI';
+import { getUser, updateUser } from '../services/userAPI';
 
 class ProfileEdit extends Component {
   state = {
@@ -11,6 +12,7 @@ class ProfileEdit extends Component {
     image: '',
     username: '',
     isSaveButtonDisabled: true,
+    redirect: false,
   }
 
   async componentDidMount() {
@@ -24,6 +26,10 @@ class ProfileEdit extends Component {
       image,
       username: name,
     });
+  }
+
+  componentWillUnmount() {
+    this.setState = () => {};
   }
 
   handleChange = ({ target }) => {
@@ -45,6 +51,17 @@ class ProfileEdit extends Component {
 
     const disabled = errorCases.every((error) => error !== true);
     this.setState({ isSaveButtonDisabled: !disabled });
+  }
+
+  saveUpdatedUser = async (event) => {
+    event.preventDefault();
+
+    this.setState({ loading: true });
+
+    const { description, email, image, username } = this.state;
+    await updateUser({ description, email, image, name: username });
+
+    this.setState({ loading: false, redirect: true });
   }
 
   handleFormToRender = () => {
@@ -113,6 +130,7 @@ class ProfileEdit extends Component {
           type="submit"
           data-testid="edit-button-save"
           disabled={ isSaveButtonDisabled }
+          onClick={ this.saveUpdatedUser }
         >
           Salvar
         </button>
@@ -121,11 +139,12 @@ class ProfileEdit extends Component {
   }
 
   render() {
-    const { loading } = this.state;
+    const { loading, redirect } = this.state;
     return (
       <div data-testid="page-profile-edit">
         <Header />
         { loading ? <Loading /> : this.handleFormToRender() }
+        { redirect && <Redirect to="/profile" /> }
       </div>
     );
   }

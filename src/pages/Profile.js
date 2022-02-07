@@ -29,17 +29,17 @@ class Profile extends Component {
                   ? <img data-testid="profile-image" src={ image } alt={ name } />
                   : <img src="https://bit.ly/3B3AFwj" alt="imagem de pessoa usuária" /> }
               </div>
-              <Link to="/profile/edit">Editar perfil</Link>
+              <Link to="/profile/edit"><p>Editar perfil</p></Link>
               <div className="name-container">
-                <h3>Nome</h3>
+                <h4>Nome</h4>
                 <p>{ name }</p>
               </div>
               <div className="email-container">
-                <h3>E-mail</h3>
+                <h4>E-mail</h4>
                 <p>{ email }</p>
               </div>
               <div className="description-container">
-                <h3>Descrição</h3>
+                <h4>Descrição</h4>
                 <p>{ description }</p>
               </div>
             </section>
