@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './app.css';
+import './search.css';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
@@ -64,7 +64,7 @@ class Search extends Component {
     const noAlbumFound = inputedValue.length > 0 && albumsArray.length === 0;
     const enableButton = searchInput.length >= minNameSize;
     const form = (
-      <>
+      <section className="search-form">
         <input
           type="text"
           data-testid="search-artist-input"
@@ -82,15 +82,13 @@ class Search extends Component {
         >
           Pesquisar
         </button>
-      </>
+      </section>
     );
 
     return (
       <div data-testid="page-search">
         <Header />
-        <div className="search">
-          { loading ? <Loading /> : form }
-        </div>
+        { loading ? <Loading /> : form }
         <div className="album-section">
           { albumsArray.length > 0 && this.showAlbums() }
           { noAlbumFound && <h1>Nenhum álbum foi encontrado</h1> }
