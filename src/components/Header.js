@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './header.css';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
@@ -17,22 +18,26 @@ class Header extends Component {
   render() {
     const { loading, username } = this.state;
     const header = (
-      <>
+      <div className="header">
         <div className="hearder-top">
-          <p>trybeTunes</p>
-          <p data-testid="header-user-name">{ username }</p>
-          <span><Link to="/">Logout</Link></span>
+          <img src="/assets/images/logo.png" alt="logomarca TrybeTunes" />
+          <div data-testid="header-user-name" className="user-name">
+            { username }
+            <span><Link to="/">|Logout</Link></span>
+          </div>
         </div>
         <nav className="header-menu">
-          <p><Link to="/search" data-testid="link-to-search">Pesquisa</Link></p>
-          <p><Link to="/favorites" data-testid="link-to-favorites">Favoritas</Link></p>
-          <p><Link to="/profile" data-testid="link-to-profile">Perfil</Link></p>
+          <div><Link to="/search" data-testid="link-to-search">Pesquisa</Link></div>
+          <div>
+            <Link to="/favorites" data-testid="link-to-favorites">Favoritas</Link>
+          </div>
+          <div><Link to="/profile" data-testid="link-to-profile">Perfil</Link></div>
         </nav>
-      </>
+      </div>
     );
 
     return (
-      <header data-testid="header-component" className="header">
+      <header data-testid="header-component">
         { loading ? <Loading /> : header }
       </header>
     );
