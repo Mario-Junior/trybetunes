@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './app.css';
+import './login.css';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
@@ -32,30 +32,36 @@ class Login extends Component {
     const { nameInput, loading, redirect } = this.state;
     const enableButton = nameInput.length >= minNameSize;
     const form = (
-      <>
-        <h1>trybeTunes</h1>
-        <input
-          type="text"
-          data-testid="login-name-input"
-          name="nameInput"
-          value={ nameInput }
-          placeholder="Nome de pessoa usuária"
-          onChange={ (event) => this.setState({ nameInput: event.target.value }) }
+      <section className="login">
+        <img
+          src="/assets/images/login-logo.png"
+          alt="logomarca TrybeTunes"
+          className="login-logo"
         />
-        <button
-          type="button"
-          data-testid="login-submit-button"
-          name="submitButton"
-          disabled={ !enableButton }
-          onClick={ this.handleSubmitButton }
-        >
-          Entrar
-        </button>
-      </>
+        <div className="login-fields">
+          <input
+            type="text"
+            data-testid="login-name-input"
+            name="nameInput"
+            value={ nameInput }
+            placeholder="Nome de pessoa usuária"
+            onChange={ (event) => this.setState({ nameInput: event.target.value }) }
+          />
+          <button
+            type="button"
+            data-testid="login-submit-button"
+            name="submitButton"
+            disabled={ !enableButton }
+            onClick={ this.handleSubmitButton }
+          >
+            Entrar
+          </button>
+        </div>
+      </section>
     );
 
     return (
-      <div data-testid="page-login" className="login">
+      <div data-testid="page-login">
         { loading ? <Loading /> : form }
         { redirect && <Redirect to="/search" /> }
       </div>

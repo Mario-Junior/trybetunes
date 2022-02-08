@@ -2,15 +2,6 @@
   text-align: center;
 }
 
-.login {
-  display: flex;
-  flex-direction: column;
-  margin: 1vw auto;
-  max-width: 300px;
-  text-align: center;
-  width: 80%;
-}
-
 .search {
   display: flex;
   flex-direction: column;

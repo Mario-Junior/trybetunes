@@ -20,7 +20,7 @@ class Header extends Component {
     const header = (
       <div className="header">
         <div className="hearder-top">
-          <img src="/assets/images/logo.png" alt="logomarca TrybeTunes" />
+          <img src="/assets/images/header-logo.png" alt="logomarca TrybeTunes" />
           <div data-testid="header-user-name" className="user-name">
             { username }
             <span><Link to="/">|Logout</Link></span>

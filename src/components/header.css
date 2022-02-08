@@ -20,14 +20,14 @@
   background-color: white;
   border: 1px solid #023031;
   border-radius: 50px;
-  margin-right: 50px;
+  margin-right: 25px;
+  max-width: 200px;
   padding: 10px 15px;
-  width: 200px;
 }
 
 .hearder-top > img {
   margin-bottom: 25px;
-  margin-left: 50px;
+  margin-left: 25px;
 }
 
 .header-menu {
@@ -52,7 +52,7 @@
 
 .header-menu > div > a {
   color: inherit;
-  font-size: 2vw;
+  font-size: calc(18px + 1.5vw);
   font-weight: 500;
   text-decoration: none;
 }
@@ -61,7 +61,7 @@
   background-color: #036b52;
   color: #f0f2f5;
   cursor: pointer;
-  font-size: 2vw;
+  font-size: calc(18px + 1.5vw);
   font-weight: 500;
   text-decoration: none;
 }
