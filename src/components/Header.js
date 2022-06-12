@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './header.css';
+// import './header.css';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
