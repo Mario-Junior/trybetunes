@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import * as C from './styles';
 // import './header.css';
-import { headerLogo } from '../assets/images';
+import { headerLogo } from '../../assets/images';
 import { Link } from 'react-router-dom';
-import { getUser } from '../services/userAPI';
-import Loading from './Loading';
+import { getUser } from '../../services/userAPI';
+import Loading from '../Loading';
 
 class Header extends Component {
   state = {
@@ -19,22 +20,20 @@ class Header extends Component {
   render() {
     const { loading, username } = this.state;
     const header = (
-      <div className="header">
-        <div className="hearder-top">
-          <img src={headerLogo} alt="logomarca TrybeTunes" />
+      <C.Container>
+        <nav className="header-menu">
+          <Link to="/search" data-testid="link-to-search">Pesquisa</Link>
+          <Link to="/favorites" data-testid="link-to-favorites">Favoritas</Link>
+          <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+        </nav>
+        <C.User>
           <div data-testid="header-user-name" className="user-name">
             { username }
-            <span><Link to="/">|Logout</Link></span>
+            <span><Link to="/"> | Logout</Link></span>
           </div>
-        </div>
-        <nav className="header-menu">
-          <div><Link to="/search" data-testid="link-to-search">Pesquisa</Link></div>
-          <div>
-            <Link to="/favorites" data-testid="link-to-favorites">Favoritas</Link>
-          </div>
-          <div><Link to="/profile" data-testid="link-to-profile">Perfil</Link></div>
-        </nav>
-      </div>
+          <img src={headerLogo} alt="logomarca TrybeTunes" />
+        </C.User>
+      </C.Container>
     );
 
     return (

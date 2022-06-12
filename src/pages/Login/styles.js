@@ -1,4 +1,4 @@
-// 1366 x 768
+// src/pages/Login (1366 x 768)
 import styled from "styled-components";
 
 export const Container = styled.section`
@@ -17,16 +17,16 @@ export const Aside = styled.div`
   justify-content: center;
   align-items: center;
   img {
-    width: 80%;
+    width: 90%;
   }
 `;
 
 export const Content = styled.div`
-  min-width: 40%;
-  width: 40%;
+  min-width: 50%;
+  width: 50%;
   height: 100%;
   background-color: ${({ theme }) => theme.colors.primary.background};
-  padding: 130px 50px 150px;
+  padding: 50px 100px 120px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
