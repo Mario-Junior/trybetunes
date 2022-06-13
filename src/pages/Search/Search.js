@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as C from './styles';
 // import './search.css';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header/Header';
@@ -35,26 +36,28 @@ class Search extends Component {
     const text = `Resultado de álbuns de: ${inputedValue}`;
     return (
       <>
-        <p>{ text }</p>
-        <section className="albums">
+        <C.Content>
+          <h2>{ text }</h2>
+        </C.Content>
+        <C.CardList>
           {albumsArray.map((album) => (
             <Link
               data-testid={ `link-to-album-${album.collectionId}` }
               to={ `album/${album.collectionId}` }
               key={ album.collectionId }
             >
-              <div className="album-card">
-                <img
+              <C.CardContainer>
+                <C.Image
                   src={ album.artworkUrl100 }
                   alt={ `Imagem do ${album.collectionName} de ${album.artistName}` }
                   className="album-img"
                 />
-                <p>{ album.collectionName }</p>
-                <p>{ album.artistName }</p>
-              </div>
+                <p className="title">{ album.collectionName }</p>
+                <p className="subtitle">{ album.artistName }</p>
+              </C.CardContainer>
             </Link>
           ))}
-        </section>
+        </C.CardList>
       </>
     );
   }
@@ -64,7 +67,7 @@ class Search extends Component {
     const noAlbumFound = inputedValue.length > 0 && albumsArray.length === 0;
     const enableButton = searchInput.length >= minNameSize;
     const form = (
-      <section className="search-form">
+      <C.Form>
         <input
           type="text"
           data-testid="search-artist-input"
@@ -82,18 +85,18 @@ class Search extends Component {
         >
           Pesquisar
         </button>
-      </section>
+      </C.Form>
     );
 
     return (
-      <div data-testid="page-search">
-        <Header />
+      <>
+      <Header />
+      <C.Container>
         { loading ? <Loading /> : form }
-        <div className="album-section">
-          { albumsArray.length > 0 && this.showAlbums() }
           { noAlbumFound && <h1>Nenhum álbum foi encontrado</h1> }
-        </div>
-      </div>
+          { albumsArray.length > 0 && this.showAlbums() }
+      </C.Container>
+      </>
     );
   }
 }

@@ -37,9 +37,20 @@ class Header extends Component {
     );
 
     return (
-      <header data-testid="header-component">
-        { loading ? <Loading /> : header }
-      </header>
+      <C.Container>
+        <nav className="header-menu">
+          <Link to="/search" data-testid="link-to-search">Pesquisa</Link>
+          <Link to="/favorites" data-testid="link-to-favorites">Favoritas</Link>
+          <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+        </nav>
+        <C.User>
+          <div data-testid="header-user-name" className="user-name">
+            { loading ? <span>Loading...</span> : username }
+            <span><Link to="/"> | Logout</Link></span>
+          </div>
+          <img src={headerLogo} alt="logomarca TrybeTunes" />
+        </C.User>
+      </C.Container>
     );
   }
 }
