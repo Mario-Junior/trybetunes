@@ -48,7 +48,7 @@ class Header extends Component {
             { loading ? <span>Loading...</span> : username }
             <span><Link to="/"> | Logout</Link></span>
           </div>
-          <img src={headerLogo} alt="logomarca tunes.io" />
+          <img src={headerLogo} alt="logomarca tunes.io" className="img-responsive"/>
         </C.User>
       </C.Container>
     );

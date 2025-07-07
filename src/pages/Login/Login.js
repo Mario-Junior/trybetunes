@@ -41,7 +41,7 @@ class Login extends Component {
         <C.Content>
           <img
             src={loginLogo}
-            alt="logomarca TrybeTunes"
+            alt="logomarca tunes.io"
             className="login-logo"
           />
           <div>
