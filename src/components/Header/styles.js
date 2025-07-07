@@ -47,7 +47,7 @@ export const User = styled.div`
   justify-content: space-between;
 
   img {
-    width: 22%;
+    width: 20%;
     padding: 2% auto;
     height: auto;
     display: block;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   width: 100vw;
-  max-width: 1366px;
+  /* max-width: 1366px; */
   height: 100vh;
   display: flex;
   align-items: center;
