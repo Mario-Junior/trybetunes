@@ -31,7 +31,7 @@ class Header extends Component {
             { username }
             <span><Link to="/"> | Logout</Link></span>
           </div>
-          <img src={headerLogo} alt="logomarca TrybeTunes" />
+          <img src={headerLogo} alt="logomarca tunes.io" style={{ width: '80%', height: 'auto', display: 'block' }}/>
         </C.User>
       </C.Container>
     );
@@ -48,7 +48,7 @@ class Header extends Component {
             { loading ? <span>Loading...</span> : username }
             <span><Link to="/"> | Logout</Link></span>
           </div>
-          <img src={headerLogo} alt="logomarca TrybeTunes" />
+          <img src={headerLogo} alt="logomarca tunes.io" />
         </C.User>
       </C.Container>
     );
