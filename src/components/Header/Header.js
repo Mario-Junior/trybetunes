@@ -26,12 +26,12 @@ class Header extends Component {
           <Link to="/favorites" data-testid="link-to-favorites">Favoritas</Link>
           <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
         </nav>
-        <C.User style={{ width: '100%' }}>
+        <C.User>
           <div data-testid="header-user-name" className="user-name">
             { username }
             <span><Link to="/"> | Logout</Link></span>
           </div>
-          <img src={headerLogo} alt="logomarca tunes.io" style={{ width: '80%', height: 'auto' }} />
+          <img src={headerLogo} alt="logomarca tunes.io" className="img-responsive"/>
         </C.User>
       </C.Container>
     );

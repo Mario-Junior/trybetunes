@@ -30,6 +30,12 @@
   margin-left: 25px;
 }
 
+.img-responsive {
+  display: block;
+  height: auto;
+  width: 80%;
+}
+
 .header-menu {
   align-items: center;
   background-color: #f0f2f5;
