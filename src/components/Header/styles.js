@@ -46,7 +46,9 @@ export const User = styled.div`
   align-items: center;
 
   img {
-    width: 50%;
+    width: 25%;
+    height: auto;
+    display: block;
   }
 
   div {
